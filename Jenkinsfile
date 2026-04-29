@@ -35,7 +35,7 @@ pipeline {
                 sh '''
                     docker stop simple-app || true
                     docker rm simple-app || true
-                    docker run -d -p 8081:3000 --name simple-app $IMAGE_NAME:latest
+                    docker run -d -p 8087:3000 --name simple-app $IMAGE_NAME:latest
                 '''
             }
         }

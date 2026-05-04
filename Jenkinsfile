@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'node:18'
+            image 'docker:24-cli'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
@@ -26,8 +27,6 @@ pipeline {
 
         stage('Build Docker') {
             steps {
-                sh 'apt-get update'
-                sh 'apt-get install -y docker.io'
                 sh 'docker build -t $IMAGE_NAME:latest .'
             }
         }
